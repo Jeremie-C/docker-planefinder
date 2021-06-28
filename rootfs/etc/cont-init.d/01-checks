@@ -22,8 +22,6 @@ fi
 if [ -z "${SHARECODE}" ]; then
   echo "WARNING: SHARECODE environment variable not set"
   echo "You have to create one."
-  CONFONLY=1
-  printf "%s" "$CONFONLY" > /var/run/s6/container_environment/CONFONLY
 fi
 # Set up timezone
 if [ -z "${TZ}" ]; then

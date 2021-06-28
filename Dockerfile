@@ -20,11 +20,9 @@ RUN apt-get update && apt-get upgrade -y && \
   chmod +x /healthcheck.sh && \
   # S6 OVERLAY
   /scripts/s6-overlay.sh && \
-  # Arch Specific Operations
-  /scripts/arch-specific.sh && \
   # PFClient
-  rm /run/pfclient.pid > /dev/null 2>&1 || true && \
-  rm -rf /config/* /var/log/pfclient/* /etc/pfclient-config.json && \
+  /scripts/arch-specific.sh && \
+  dpkg --install /tmp/pfclient.deb && \
   # Cleanup
   apt-get remove -y file gnupg && \
   apt-get autoremove -y && \

@@ -1,11 +1,19 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-mkdir -p /var/log/pfclient
-chown -R nobody /var/log/pfclient
 mkdir -p /config
-chown -R nobody /config
 
-# Ensure pid file exists
-touch /run/pfclient.pid
-chown nobody /run/pfclient.pid
+:'
+{
+  "tcp_address":"172.17.0.3",
+  "tcp_port":"30005",
+  "select_timeout":"10",
+  "data_upload_interval":"10",
+  "connection_type":"1",
+  "aircraft_timeout":"30",
+  "data_format":"1",
+  "latitude":"45.796680",
+  "longitude":"4.274850",
+  "sharecode":"60da281908156"
+}
+'
