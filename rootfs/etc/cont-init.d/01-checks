@@ -1,0 +1,35 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+EXITCODE=0
+
+# BeastHost
+if [ -z "${BEAST_HOST}" ]; then
+  echo "ERROR: BEAST_HOST environment variable not set"
+  EXITCODE=1
+fi
+# LATITUDE
+if [ -z "${LATITUDE}" ]; then
+  echo "ERROR: LATITUDE environment variable not set"
+  EXITCODE=1
+fi
+# LONGITUDE
+if [ -z "${LONGITUDE}" ]; then
+  echo "ERROR: LONGITUDE environment variable not set"
+  EXITCODE=1
+fi
+# ShareCode
+if [ -z "${SHARECODE}" ]; then
+  echo "WARNING: SHARECODE environment variable not set"
+  echo "You have to create one."
+  CONFONLY=1
+  printf "%s" "$CONFONLY" > /var/run/s6/container_environment/CONFONLY
+fi
+# Set up timezone
+if [ -z "${TZ}" ]; then
+  echo "WARNING: TZ environment variable not set"
+else
+  ln -snf "/usr/share/zoneinfo/$TZ" /etc/localtime && echo "$TZ" > /etc/timezone
+fi
+
+exit $EXITCODE

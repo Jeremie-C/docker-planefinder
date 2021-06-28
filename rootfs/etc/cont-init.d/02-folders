@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+mkdir -p /var/log/pfclient
+chown -R nobody /var/log/pfclient
+mkdir -p /config
+chown -R nobody /config
+
+# Ensure pid file exists
+touch /run/pfclient.pid
+chown nobody /run/pfclient.pid
