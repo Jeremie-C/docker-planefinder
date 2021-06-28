@@ -29,3 +29,5 @@ case $arch in
 esac
 
 wget -O /tmp/pfclient.deb "${FILE}"
+dpkg --install /tmp/pfclient.deb
+kill -9 "$(cat /run/pfclient.pid)"

@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 #shellcheck shell=bash
 
-if [ ${CONFONLY} == "1" ]; then
+if [ "${CONFONLY}" == "1" ]; then
   s6-setuidgid nobody /usr/bin/pfclient \
     --pid_file=/run/pfclient.pid \
     --config_path=/config/pfclient-config.json \

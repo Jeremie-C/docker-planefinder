@@ -18,17 +18,17 @@ RUN apt-get update && apt-get upgrade -y && \
   # Sripts
   chmod +x /scripts/*.sh && \
   chmod +x /healthcheck.sh && \
+  # S6 OVERLAY
+  /scripts/s6-overlay.sh && \
   # Arch Specific Operations
   /scripts/arch-specific.sh && \
   # PFClient
-  dpkg --install /tmp/pfclient.deb && \
-  kill -9 "$(cat /run/pfclient.pid)" && \
   rm /run/pfclient.pid > /dev/null 2>&1 || true && \
   rm -rf /config/* /var/log/pfclient/* /etc/pfclient-config.json && \
   # Cleanup
   apt-get remove -y file gnupg && \
   apt-get autoremove -y && \
-  rm -rf /scripts /var/lib/apt/lists/*
+  rm -rf /tmp/* /scripts /var/lib/apt/lists/*
 
 ENTRYPOINT ["/init"]
 EXPOSE 30053
