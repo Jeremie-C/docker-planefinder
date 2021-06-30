@@ -21,7 +21,7 @@ fi
 # ShareCode
 if [ -z "${SHARECODE}" ]; then
   echo "WARNING: SHARECODE environment variable not set"
-  echo "You have to create one."
+  echo "INFO: You have to create one. Go to http://HOSTIP:30053/"
 fi
 # Set up timezone
 if [ -z "${TZ}" ]; then

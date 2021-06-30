@@ -23,6 +23,7 @@ RUN apt-get update && apt-get upgrade -y && \
   # PFClient
   /scripts/arch-specific.sh && \
   dpkg --install /tmp/pfclient.deb && \
+  rm -rf /var/log/pfclient/* /etc/pfclient-config.json && \
   # Cleanup
   apt-get remove -y file gnupg && \
   apt-get autoremove -y && \

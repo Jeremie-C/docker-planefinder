@@ -3,6 +3,7 @@
 
 # shellcheck disable=SC2086
 /usr/bin/pfclient \
-  --config_path=/config/pfclient-config.json \
+  --config_path=/config/config.json \
   --log_path=/var/log/pfclient \
-  --pid_file=/run/pfclient.pid
+  --pid_file=/run/pfclient.pid \
+  2>&1 | mawk -W Interactive '{print "[pfclient] " $0}'

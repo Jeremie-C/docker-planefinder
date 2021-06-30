@@ -1,0 +1,12 @@
+{
+  "tcp_address":"127.0.0.1",
+  "tcp_port":"30005",
+  "latitude":"46.000000",
+  "longitude":"4.000000",
+  "sharecode":"0000000000000",
+  "select_timeout":"10",
+  "data_upload_interval":"10",
+  "connection_type":"1",
+  "aircraft_timeout":"30",
+  "data_format":"1"
+}
