@@ -1,13 +1,13 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-rm -f /config/config.json > /dev/null 2>&1 || true
+rm -f /etc/pfclient-config.json > /dev/null 2>&1 || true
 
 if [ -n "${SHARECODE}" ]; then
-  cp /config/config.json.tpl /config/config.json
-  sed -i -e "/^\s\{2,\}\"tcp_address\":.*/c\  \"tcp_address\":\"${BEAST_HOST}\"" /config/config.json
-  sed -i -e "/^\s\{2,\}\"tcp_port\":.*/c\  \"tcp_port\":\"${BEAST_PORT:-30005}\"" /config/config.json
-  sed -i -e "/^\s\{2,\}\"latitude\":.*/c\  \"latitude\":\"${LATITUDE}\"" /config/config.json
-  sed -i -e "/^\s\{2,\}\"longitude\":.*/c\  \"longitude\":\"${LONGITUDE}\"" /config/config.json
-  sed -i -e "/^\s\{2,\}\"sharecode\":.*/c\  \"sharecode\":\"${SHARECODE}\"" /config/config.json
+  cp /etc/config/config.json.tpl /etc/pfclient-config.json
+  sed -i -e "/^\s\{2,\}\"tcp_address\":.*/c\  \"tcp_address\":\"${BEAST_HOST}\"" /etc/pfclient-config.json
+  sed -i -e "/^\s\{2,\}\"tcp_port\":.*/c\  \"tcp_port\":\"${BEAST_PORT:-30005}\"" /etc/pfclient-config.json
+  sed -i -e "/^\s\{2,\}\"latitude\":.*/c\  \"latitude\":\"${LATITUDE}\"" /etc/pfclient-config.json
+  sed -i -e "/^\s\{2,\}\"longitude\":.*/c\  \"longitude\":\"${LONGITUDE}\"" /etc/pfclient-config.json
+  sed -i -e "/^\s\{2,\}\"sharecode\":.*/c\  \"sharecode\":\"${SHARECODE}\"" /etc/pfclient-config.json
 fi
