@@ -14,7 +14,7 @@ RUN apt-get update && apt-get upgrade -y && \
   # Required for build
   file gnupg \  
   # Required always
-  jq net-tools procps libc6 lsb-base && \
+  jq net-tools procps libc6 lsb-base netstat && \
   # Sripts
   chmod +x /scripts/*.sh && \
   chmod +x /healthcheck.sh && \
@@ -31,5 +31,5 @@ RUN apt-get update && apt-get upgrade -y && \
 
 ENTRYPOINT ["/init"]
 EXPOSE 30053
-HEALTHCHECK --start-period=60s --interval=300s CMD /healthcheck.sh
+HEALTHCHECK --start-period=120s --interval=300s CMD /healthcheck.sh
 LABEL maintainer="Jeremie-C <Jeremie-C@users.noreply.github.com>"
