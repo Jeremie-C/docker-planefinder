@@ -14,7 +14,7 @@ RUN apt-get update && apt-get upgrade -y && \
   # Required for build
   file gnupg \  
   # Required always
-  jq net-tools procps libc6 lsb-base netstat && \
+  jq net-tools procps libc6 lsb-base net-tools && \
   # Sripts
   chmod +x /scripts/*.sh && \
   chmod +x /healthcheck.sh && \
